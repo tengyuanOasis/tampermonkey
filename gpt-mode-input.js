@@ -4,7 +4,7 @@
 // @name         GPT模型输入
 // @namespace    http://tampermonkey.net/
 // @version      0.3
-// @description  GPT模型输入，通过模型调教获取更好的gpt体验
+// @description  GPT中文调教模型，通过调教获取更好的gpt体验
 // @author       JuneTeng Ma
 // @match        https://chat.openai.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=openai.com
