@@ -3,7 +3,7 @@
 // ==UserScript==
 // @name         前端面试指南内容破解
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  https://interview.poetries.top/ 网站限制内容破解
 // @author       You
 // @match         *://*.poetries.top/*
