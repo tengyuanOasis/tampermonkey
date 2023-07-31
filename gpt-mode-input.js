@@ -8,6 +8,10 @@
 // @author       JuneTeng Ma
 // @match        https://chat.openai.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=openai.com
+// @namespace    https://raw.githubusercontent.com/tengyuanOasis/tampermonkey_scripts/
+// @supportURL   https://raw.githubusercontent.com/tengyuanOasis/tampermonkey_scripts/
+// @updateURL    https://raw.githubusercontent.com/tengyuanOasis/tampermonkey_scripts/ee098a8af8fe22c4008a68605dedb5546a6aa10e/gpt-mode-input.js
+// @downloadURL  https://raw.githubusercontent.com/tengyuanOasis/tampermonkey_scripts/ee098a8af8fe22c4008a68605dedb5546a6aa10e/gpt-mode-input.js
 // @grant        none
 // ==/UserScript==
 
@@ -34,11 +38,13 @@ const mode = [
 	},
 	{
 		name: '充当正则表达式生成器',
-		value: '我希望你充当正则表达式生成器。您的角色是生成匹配文本中特定模式的正则表达式。您应该以一种可以轻松复制并粘贴到支持正则表达式的文本编辑器或编程语言中的格式提供正则表达式。不要写正则表达式如何工作的解释或例子；只需提供正则表达式本身。'
+		value:
+			'我希望你充当正则表达式生成器。您的角色是生成匹配文本中特定模式的正则表达式。您应该以一种可以轻松复制并粘贴到支持正则表达式的文本编辑器或编程语言中的格式提供正则表达式。不要写正则表达式如何工作的解释或例子；只需提供正则表达式本身。'
 	},
 	{
 		name: '充当 StackOverflow 帖子',
-		value: '我想让你充当 stackoverflow 的帖子。我会问与编程相关的问题，你会回答应该是什么答案。我希望你只回答给定的答案，并在不够详细的时候写解释。不要写解释。当我需要用英语告诉你一些事情时，我会把文字放在大括号内{like this}。'
+		value:
+			'我想让你充当 stackoverflow 的帖子。我会问与编程相关的问题，你会回答应该是什么答案。我希望你只回答给定的答案，并在不够详细的时候写解释。不要写解释。当我需要用英语告诉你一些事情时，我会把文字放在大括号内{like this}。'
 	}
 ];
 
