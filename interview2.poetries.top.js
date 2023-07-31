@@ -9,8 +9,8 @@
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=openai.com
 // @namespace    https://raw.githubusercontent.com/tengyuanOasis/tampermonkey_scripts/
 // @supportURL   https://raw.githubusercontent.com/tengyuanOasis/tampermonkey_scripts/
-// @updateURL    https://raw.githubusercontent.com/tengyuanOasis/tampermonkey_scripts/ee098a8af8fe22c4008a68605dedb5546a6aa10e/gpt-mode-input.js
-// @downloadURL  https://raw.githubusercontent.com/tengyuanOasis/tampermonkey_scripts/ee098a8af8fe22c4008a68605dedb5546a6aa10e/gpt-mode-input.js
+// @updateURL    https://raw.githubusercontent.com/tengyuanOasis/tampermonkey_scripts/main/interview2.poetries.top.js
+// @downloadURL  https://raw.githubusercontent.com/tengyuanOasis/tampermonkey_scripts/main/interview2.poetries.top.js
 // @grant        none
 // ==/UserScript==
 window.onload = function () {
