@@ -27,12 +27,12 @@ const mode = [
 			'我想让你充当前端开发专家。我将提供一些关于vue、Js、uniapp、支付宝小程序、微信小程序的相关问题，而你的工作就是想出为我解决问题的策略。这可能包括建议代码、代码逻辑思路策略。'
 	},
 	{
-		name: '英 --> 中',
+		name: '英译中',
 		value:
 			'下面我让你来充当翻译家，你的目标是把任何语言翻译成中文，请翻译时不要带翻译腔，而是要翻译得自然、流畅和地道，使用优美和高雅的表达方式。'
 	},
 	{
-		name: '中 --> 英',
+		name: '中译英',
 		value:
 			'下面我让你来充当翻译家，你的目标是把中文翻译成英文，请翻译时不要带翻译腔，而是要翻译得自然、流畅和地道，使用优美和高雅的表达方式。'
 	},
@@ -100,7 +100,7 @@ const createBox = () => {
 	});
 
 	box.style.cssText = `
-        width:200px;
+        			width:300px;
 				position: fixed;
 				right: 10px;
 				top: 100px;
@@ -114,10 +114,10 @@ const createBox = () => {
         box-shadow:  5px 5px 17px #bababa,-5px -5px 17px #ffffff;
 		`;
 	const str = mode.reduce(
-		(pre, cur) =>
+		(pre, cur，cIdx) =>
 			(pre += `
 			<li style="margin:10px;cursor:pointer;color:#000" onclick="window.sendMsg('${cur.value}')">
-				${cur.name}
+				${cIdx}、${cur.name}
 			</li>`),
 		''
 	);
