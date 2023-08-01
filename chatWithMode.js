@@ -100,24 +100,26 @@ const createBox = () => {
 	});
 
 	box.style.cssText = `
-        			width:300px;
+        			width:240px;
+	   			max-height:500px;
+       				overflow-y:scroll;
 				position: fixed;
 				right: 10px;
 				top: 100px;
 				box-sizing:border-box;
 				padding:20px;
 				border-radius: 10px;
-        z-index:999;
-        color:#000;
-        border-radius: 12px;
-        background: #fff;
-        box-shadow:  5px 5px 17px #bababa,-5px -5px 17px #ffffff;
+        			z-index:999;
+       				color:#000;
+        			border-radius: 12px;
+        			background: #fff;
+        			box-shadow:  5px 5px 17px #bababa,-5px -5px 17px #ffffff;
 		`;
 	const str = mode.reduce(
-		(pre, cur，cIdx) =>
+		(pre, cur,cIdx) =>
 			(pre += `
 			<li style="margin:10px;cursor:pointer;color:#000" onclick="window.sendMsg('${cur.value}')">
-				${cIdx}、${cur.name}
+				${cIdx+1}、${cur.name}
 			</li>`),
 		''
 	);
