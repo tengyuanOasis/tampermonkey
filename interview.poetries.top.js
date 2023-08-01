@@ -5,7 +5,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.2
 // @description  https://interview.poetries.top/ 网站限制内容破解
-// @author       You
+// @author       June
 // @match         *://*.poetries.top/*
 // @namespace    https://raw.githubusercontent.com/tengyuanOasis/tampermonkey/
 // @supportURL   https://raw.githubusercontent.com/tengyuanOasis/tampermonkey/

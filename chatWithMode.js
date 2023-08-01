@@ -3,15 +3,15 @@
 // ==UserScript==
 // @name         GPT模型输入
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  GPT中文调教模型，通过调教获取更好的gpt体验
-// @author       JuneTeng Ma
+// @author       June
 // @match        https://chat.openai.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=openai.com
 // @namespace    https://raw.githubusercontent.com/tengyuanOasis/tampermonkey/
 // @supportURL   https://raw.githubusercontent.com/tengyuanOasis/tampermonkey/
-// @updateURL    https://raw.githubusercontent.com/tengyuanOasis/tampermonkey/main/chatWidthMode.js
-// @downloadURL  https://raw.githubusercontent.com/tengyuanOasis/tampermonkey/main/chatWidthMode.js
+// @updateURL    https://raw.githubusercontent.com/tengyuanOasis/tampermonkey/main/chatWithMode.js
+// @downloadURL  https://raw.githubusercontent.com/tengyuanOasis/tampermonkey/main/chatWithMode.js
 // @grant        none
 // ==/UserScript==
 
