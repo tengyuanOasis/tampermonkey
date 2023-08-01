@@ -63,7 +63,6 @@ const mode = [
 ];
 
 const sendMsg = (msg) => {
-	console.log('msg', msg);
 	let t = document.querySelector('#prompt-textarea');
 	let evt = document.createEvent('HTMLEvents');
 	evt.initEvent('input', true, true);
@@ -77,7 +76,37 @@ const sendMsg = (msg) => {
 const createBox = () => {
 	let box = document.createElement('div');
 
-	// 初始化变量
+	box.style.cssText = `
+        width:240px;
+		position: fixed;
+		right: 10px;
+		top: 100px;
+		box-sizing:border-box;
+		padding:20px;
+		border-radius: 10px;
+        z-index:999;
+       	color:#000;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow:  5px 5px 17px #bababa,-5px -5px 17px #ffffff;
+	`;
+
+	const str = mode.reduce(
+		(pre, cur, cIdx) =>
+		(pre += `
+			<li style="margin:10px;cursor:pointer;color:#000" onclick="window.sendMsg('${cur.value}')">
+				${cIdx + 1}、${cur.name}
+			</li>`),
+		''
+	);
+	box.innerHTML = `
+    	<div style="font-weight:bold;font-size:20px;cursor:move;">模型输入</div>
+    	<ul style="width:100%;max-height:260px;overflow-y:scroll">${str}</ul>
+    `;
+
+	document.body.appendChild(box);
+
+
 	let isDown = false;
 	let offsetX, offsetY;
 
@@ -99,35 +128,6 @@ const createBox = () => {
 		}
 	});
 
-	box.style.cssText = `
-        			width:240px;
-	   			max-height:500px;
-       				overflow-y:scroll;
-				position: fixed;
-				right: 10px;
-				top: 100px;
-				box-sizing:border-box;
-				padding:20px;
-				border-radius: 10px;
-        			z-index:999;
-       				color:#000;
-        			border-radius: 12px;
-        			background: #fff;
-        			box-shadow:  5px 5px 17px #bababa,-5px -5px 17px #ffffff;
-		`;
-	const str = mode.reduce(
-		(pre, cur,cIdx) =>
-			(pre += `
-			<li style="margin:10px;cursor:pointer;color:#000" onclick="window.sendMsg('${cur.value}')">
-				${cIdx+1}、${cur.name}
-			</li>`),
-		''
-	);
-	box.innerHTML = `
-    <div style="font-weight:bold;font-size:20px;cursor:move;">模型输入</div>
-    <ul>${str}</ul>`;
-
-	document.body.appendChild(box);
 };
 
 (function () {
