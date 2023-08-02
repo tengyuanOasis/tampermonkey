@@ -17,7 +17,7 @@
 
 class PromptBox {
 	constructor() {
-		this.prompt = [
+		this.promptList = [
 			{
 				act: '前端开发',
 				prompt: '我想让你充当前端开发专家。我将提供一些关于Js、Node等前端代码问题的具体信息，而你的工作就是想出为我解决问题的策略。这可能包括建议代码、代码逻辑思路策略。'
@@ -60,14 +60,13 @@ class PromptBox {
 			},
 			{
 				act: '代码解释器',
-				prompt:
-					'我想让你充当资深开发工程师，我将提供给你一些js、node、vue或react的代码片段，你的工作是通过代码片段分析出这段代码的作用，并给出每段逻辑的作用'
+				prompt: '我想让你充当资深开发工程师，我将提供给你一些js、node、vue或react的代码片段，你的工作是通过代码片段分析出这段代码的作用，并给出每段逻辑的作用'
 			},
 			{
 				act: 'IT专家',
 				prompt:
 					'我希望你充当 IT 专家。我会向您提供有关我的技术问题所需的所有信息，而您的职责是解决我的问题。你应该使用你的项目管理知识，敏捷开发知识来解决我的问题。在您的回答中使用适合所有级别的人的智能、简单和易于理解的语言将很有帮助。用要点逐步解释您的解决方案很有帮助。我希望您回复解决方案，而不是写任何解释'
-			},
+			}
 		];
 		this.box = this.createBox();
 		this.attachEventHandlers();
@@ -75,7 +74,7 @@ class PromptBox {
 
 	sendMsg(msg) {
 		const t = document.querySelector('#prompt-textarea');
-		t.prompt = msg;
+		t.value = msg;
 		t.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
 		setTimeout(() => t.nextElementSibling.click(), 0);
 	}
@@ -98,7 +97,7 @@ class PromptBox {
 			box-shadow:  5px 5px 17px #bababa,-5px -5px 17px #ffffff;
 		`;
 
-		const str = this.prompt
+		const str = this.promptList
 			.map(
 				(cur, cIdx) => `
 			<li style="margin:10px;cursor:pointer;color:#000">
@@ -119,21 +118,23 @@ class PromptBox {
 		let isDown = false;
 		let offsetX, offsetY;
 
+		this.box.addEventListener('click', (e) => {
+			if (e.target.tagName === 'LI') {
+				const index = Array.from(e.target.parentNode.children).indexOf(e.target);
+				const prompt = this.promptList[index].prompt;
+				this.sendMsg(prompt);
+			}
+		});
+
 		this.box.addEventListener('mousedown', (e) => {
 			isDown = true;
 			offsetX = this.box.offsetLeft - e.clientX;
 			offsetY = this.box.offsetTop - e.clientY;
 		});
 
-		this.box.addEventListener('click', (e) => {
-			if (e.target.tagName === 'LI') {
-				const index = Array.from(e.target.parentNode.children).indexOf(e.target);
-				const prompt = this.prompt[index].prompt;
-				this.sendMsg(prompt);
-			}
+		document.addEventListener('mouseup', () => {
+			isDown = false;
 		});
-
-		document.addEventListener('mouseup', () => (isDown = false));
 
 		document.addEventListener('mousemove', (e) => {
 			e.preventDefault();
