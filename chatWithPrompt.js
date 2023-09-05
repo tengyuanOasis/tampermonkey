@@ -132,11 +132,11 @@ class PromptBox {
 			offsetY = this.box.offsetTop - e.clientY;
 		});
 
-		document.addEventListener('mouseup', () => {
+		this.box.addEventListener('mouseup', () => {
 			isDown = false;
 		});
 
-		document.addEventListener('mousemove', (e) => {
+		this.box.addEventListener('mousemove', (e) => {
 			e.preventDefault();
 			if (isDown) {
 				this.box.style.left = `${e.clientX + offsetX}px`;
