@@ -11,6 +11,7 @@
 // @supportURL   https://raw.githubusercontent.com/tengyuanOasis/tampermonkey/
 // @updateURL    https://raw.githubusercontent.com/tengyuanOasis/tampermonkey/main/showGoogleSearchToll.js
 // @downloadURL  https://raw.githubusercontent.com/tengyuanOasis/tampermonkey/main/showGoogleSearchToll.js
+// ==/UserScript==
 
 (function () {
 	window.onload = () => {
