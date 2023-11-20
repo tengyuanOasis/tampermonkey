@@ -2,17 +2,13 @@
 
 // ==UserScript==
 // @name         TodoList for 172.29.3.241
-// @namespace    todoListForJira
+// @namespace    http://your.namespace/
 // @version      0.8
 // @description  Add a movable TodoList to http://172.29.3.241/browse/
 // @author       June
 // @match        http://172.29.3.241/browse/*
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=openai.com
-// @namespace    https://raw.githubusercontent.com/tengyuanOasis/tampermonkey/
-// @supportURL   https://raw.githubusercontent.com/tengyuanOasis/tampermonkey/
-// @updateURL    https://raw.githubusercontent.com/tengyuanOasis/tampermonkey/main/todoListForJira.js
-// @downloadURL  https://raw.githubusercontent.com/tengyuanOasis/tampermonkey/main/todoListForJira.js
-// @grant        none
+// @match        http://172.29.3.241/browse/*?*
+// @grant        GM_addStyle
 // ==/UserScript==
 
 class TodoList {
