@@ -3,7 +3,7 @@
 // ==UserScript==
 // @name         GPT输入提示
 // @namespace    http://tampermonkey.net/
-// @version      0.6
+// @version      0.7
 // @description  GPT中文提示，通过调教获取更好的gpt体验
 // @author       June
 // @match        *://chat.openai.com
