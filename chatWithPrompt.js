@@ -6,7 +6,8 @@
 // @version      0.6
 // @description  GPT中文提示，通过调教获取更好的gpt体验
 // @author       June
-// @match        https://chat.openai.com/*
+// @match        *://chat.openai.com
+// @match        *://chat.openai.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=openai.com
 // @namespace    https://raw.githubusercontent.com/tengyuanOasis/tampermonkey/
 // @supportURL   https://raw.githubusercontent.com/tengyuanOasis/tampermonkey/
@@ -21,7 +22,7 @@ class PromptBox {
 			{
 				act: '前端开发',
 				prompt:
-					'我想让你充当前端开发专家。我将提供一些关于Js、Node、vue2、vue3、React、uniapp、支付宝小程序、微信小程序等前端代码问题的具体信息，而你的工作就是想出为我解决问题的策略。这可能包括建议代码、代码逻辑思路策略。'
+					'我想让你充当前端开发专家。我将提供一些关于Js、Ts、Node、vue、React、uniapp、支付宝小程序、微信小程序等前端代码问题的具体信息，而你的工作就是想出为我解决问题的策略。这可能包括： 1、建议代码、代码优化、代码逻辑思路策略；2、根据我提供的问题场景给我合适的技术建议，如果我提供的信息不足你需要主动发问，了解问题场景再做解答；3、提供优化后的完整的没有省略的代码片段；4、前端常用库的使用方法使用示例等等。现在我的第一个问题是，你准备好了吗'
 			},
 			{
 				act: 'js异常助手',
@@ -47,6 +48,11 @@ class PromptBox {
 				act: '中译英',
 				prompt:
 					'下面我让你来充当翻译家，你的目标是把中文翻译成英文，请翻译时不要带翻译腔，而是要翻译得自然、流畅和地道，使用优美和高雅的表达方式。'
+			},
+			{
+				act: '一个歪果仁',
+				prompt:
+					'下面我让你来充当一名母语英语的美国人，你的职责就是用英文跟我聊天，你需要根据聊天内容寻找话题，我聊一些日常常用语句，不要有翻译腔，训练我日常用语口语以为英文阅读能力，如果我的单词拼写错了或者语法用的不对，我希望你可以纠正我的错误，向我提供一些建议，并继续聊天，如果你准备好了就向我打个招呼吧，我的名字是mark。'
 			},
 			{
 				act: 'codeif',
@@ -101,14 +107,14 @@ class PromptBox {
 		const str = this.promptList
 			.map(
 				(cur, cIdx) => `
-			<li style="margin:10px;cursor:pointer;color:#000">
-				${cIdx + 1}、${cur.act}
-			</li>`
+			     <li style="cursor:pointer;color:#000;padding:8px;border-radius:10px;">
+				    ${cIdx + 1}、${cur.act}
+			     </li>`
 			)
 			.join('');
 
 		box.innerHTML = `
-			<div style="font-weight:bold;font-size:20px;cursor:move;">输入提示</div>
+			<div style="font-weight:bold;font-size:20px;cursor:move;margin-bottom:10px">输入提示</div>
 			<ul style="width:100%;max-height:260px;overflow-y:scroll">${str}</ul>
 		`;
 
@@ -142,6 +148,17 @@ class PromptBox {
 			if (isDown) {
 				this.box.style.left = `${e.clientX + offsetX}px`;
 				this.box.style.top = `${e.clientY + offsetY}px`;
+			}
+		});
+		this.box.addEventListener('mouseover', (e) => {
+			if (e.target.tagName === 'LI') {
+				e.target.style.background = '#efefef';
+			}
+		});
+
+		this.box.addEventListener('mouseout', (e) => {
+			if (e.target.tagName === 'LI') {
+				e.target.style.background = '#fff';
 			}
 		});
 	}
